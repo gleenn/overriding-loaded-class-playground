@@ -1,0 +1,9 @@
+#!/bin/sh
+
+#find . -name \*.java | xargs javac
+find . -name *.class -delete
+
+javac *.java
+pushd extension
+javac *.java -cp ..
+popd
