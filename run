@@ -1,3 +1,9 @@
 #!/bin/sh
 
-java Main -cp .:extension/
+# the following commented code is *wrong* because it puts the extension code directly
+# into the classpath which is not what is intended by the demonstration, as we're 
+# playing with the classloader in particular
+#java Main -cp .:extension/
+
+# this is correct AFAIK
+java Main -cp .

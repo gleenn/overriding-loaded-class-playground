@@ -1,9 +1,19 @@
 #!/bin/sh
+set -e
 
+echo "Cleaning up"
 #find . -name \*.java | xargs javac
-find . -name *.class -delete
+find . -name \*.class -delete
 
+echo "Compiling top-level classes"
 javac *.java
 pushd extension
+
+echo "Compiling extension classes"
+javac *.java -cp ..
+popd
+
+echo "Compiling extension2 classes"
+pushd extension2
 javac *.java -cp ..
 popd
